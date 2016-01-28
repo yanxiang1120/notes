@@ -1,0 +1,43 @@
+adb 常用命令
+（如是多个终端 adb -s 终端（例如198.9.9.202:5555）...）
+
+1，copy 文件到终端
+adb push pc目录 终端目录
+2, copy 文件到电脑
+adb pull 终端目录 pc目录
+
+3，查看终端目录
+adb shell
+ls
+
+4,查看文件路径
+adb shell
+ls
+pwd
+
+5,打开一个activity
+adb shell am start -n 包名/类名
+adb -s 198.9.9.202:5555 shell am start -n com.android.settings/.Settings
+
+6,打开一个service
+adb shell am startsevice -n 包名类名
+adb -s 198.9.9.202:5555 shell am startservice -n com.bubblesoft.android.bubbleupnp/.AndroidUpnpService
+
+7,查看应用签名信息
+jarsigner -verify -verbose -certs  路径+包名
+
+getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//隐去电池等图标和一切修饰部分（状态栏部分）
+requestWindowFeature(Window.FEATURE_NO_TITLE);
+// 隐去标题栏（程序的名字）
+
+手动全屏
+getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+取消全屏
+getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+eclipse 无法启动
+删除 .metadata\.plugins\org.eclipse.core.resources 目录下.snap 文件
+
+EditText 限制输入内容
+android:digits="0123456789."
